@@ -1,0 +1,66 @@
+font-size-base = 14px
+
+$hex-side
+    content ''
+    width 0
+    height 0
+    position absolute
+
+
+hex-side(pos, length, depth, color)
+    @extend $hex-side
+
+    if pos == 'left'
+        border-right depth solid color
+        border-top (length/2) solid transparent
+        border-bottom (length/2) solid transparent
+        left (- depth)
+        top 0
+
+    if pos == 'right'
+        border-left depth solid color
+        border-top (length/2) solid transparent
+        border-bottom (length/2) solid transparent
+        right (- depth)
+        top 0
+
+hexagon(width, height, color)
+    HEX_CONST = .57735
+    HEX_CONST_INV = 1.73205
+    SQRT_2 = 1.41421
+    side = height / SQRT_2
+    offset = ceil((HEX_CONST_INV * ((width / 2) - ((HEX_CONST * width) / 2))) + ( (height/2) / SQRT_2 ))
+
+    width width
+    height height
+    position relative
+    transform scaleX(HEX_CONST)
+
+    &, &:before, &:after
+        background #eee
+        box-shadow 0 0 (height / 20) rgba(#000, 1)
+
+    &:before, &:after
+        content ""
+        position absolute
+        top ((height / 2) - (height / SQRT_2) / 2)
+        width side
+        height side
+        transform rotate(45deg)
+
+    &:before
+        left -(offset)
+
+    &:after
+        right -(offset)
+
+    .hexagon-inner
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        background #eee
+        z-index 1
+        transform scaleX(HEX_CONST_INV)
+

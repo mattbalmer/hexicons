@@ -1,0 +1,9 @@
+{
+  "name": "hexicons",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "reset-css": "~2.0.20110126"
+  }
+}
