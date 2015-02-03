@@ -12,7 +12,8 @@
         "jimp": "^0.1.4",
         "react-color-picker": "^2.1.4",
         "tinycolor": "0.0.1",
-        "underscore": "^1.7.0"
+        "underscore": "^1.7.0",
+        "bower": "*"
     },
     "devDependencies": {
         "browserify": "^8.1.1",
