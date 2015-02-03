@@ -11,7 +11,7 @@
         "express": "^4.11.1",
         "jimp": "^0.1.4",
         "react-color-picker": "^2.1.4",
-        "tinycolor": "0.0.1",
+        "tinycolor2": "^1.1.1",
         "underscore": "^1.7.0",
         "bower": "*"
     },
