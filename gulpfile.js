@@ -1,7 +1,10 @@
 var gulp = require('gulp'),
     stylus = require('gulp-stylus'),
     source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
     concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename'),
     browserify = require('browserify'),
     reactify = require('reactify'),
     nib = require('nib');
@@ -42,6 +45,10 @@ gulp.task('js', function() {
         .transform(reactify)
         .bundle()
         .pipe(source(appname+'.js'))
+        .pipe(gulp.dest(paths.dest.js))
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(rename({ extname: '.min.js' }))
         .pipe(gulp.dest(paths.dest.js));
 });
 gulp.task('watch', function() {
