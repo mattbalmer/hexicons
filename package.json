@@ -3,7 +3,8 @@
     "version": "0.0.2",
     "description": "Create honeycomb icons from PNG transparencies",
     "scripts": {
-        "postinstall": "bower install"
+        "postinstall": "bower install",
+        "start": "NODE_PATH=lib supervisor server"
     },
     "dependencies": {
         "body-parser": "^1.10.2",
